@@ -33,6 +33,7 @@
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/assets/bootstrap/bootstrap.min.css",
+              "node_modules/ngx-spinner/animations/ball-fall.css",
               "src/styles.sass"
             ],
             "scripts": [
@@ -100,7 +101,10 @@
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "sass",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css", "src/styles.sass"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/styles.sass"
+            ],
             "scripts": []
           }
         }
