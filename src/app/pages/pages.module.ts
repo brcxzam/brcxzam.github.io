@@ -9,6 +9,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { NameDialogComponent } from './dialogs/name-dialog/name-dialog.component';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LetterChangePipe } from './pipes/letter-change/letter-change.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormComponent,
     PagesComponent,
     NameDialogComponent,
+    LetterChangePipe,
   ],
   imports: [
     CommonModule,
