@@ -1,4 +1,22 @@
 <ngx-spinner bdColor="rgba(0,0,0,0.33)" type="ball-fall">
   <p style="color: whitesmoke">Por favor espere...</p>
 </ngx-spinner>
+<button
+  mat-fab
+  color="primary"
+  aria-label="Example icon button with a delete icon"
+  [matMenuTriggerFor]="menu"
+  *ngIf="showMenu"
+>
+  <mat-icon>menu</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/pages/">Bienvenida</button>
+  <button mat-menu-item routerLink="/pages/conversions">Conversiones</button>
+  <button mat-menu-item routerLink="/pages/dates-calculations">
+    Calcular fecha
+  </button>
+  <button mat-menu-item routerLink="/pages/form">Formulario</button>
+  <button mat-menu-item (click)="logout()">Cerrar Sesi&oacute;n</button>
+</mat-menu>
 <router-outlet></router-outlet>

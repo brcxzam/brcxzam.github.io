@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +17,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     NgxSpinnerModule,
     AuthModule,
     MatNativeDateModule,
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

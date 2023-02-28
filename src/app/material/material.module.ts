@@ -7,7 +7,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   exports: [
@@ -19,7 +20,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatDialogModule,
     MatDatepickerModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    MatMenuModule,
   ],
 })
 export class MaterialModule {}

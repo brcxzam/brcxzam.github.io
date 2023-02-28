@@ -52,12 +52,27 @@ export class LoginComponent implements OnInit {
       next: () => {
         this.spinnerService.hide();
 
+        localStorage.setItem('logged', 'true');
+
         this.router.navigate(['pages']);
       },
       error: (err) => {
         this.spinnerService.hide();
 
+        // Auth Mock
+        if (
+          this.username?.value === 'admin' &&
+          this.password?.value === 'test'
+        ) {
+          localStorage.setItem('logged', 'true');
+
+          this.router.navigate(['pages']);
+          return;
+        }
+
         this.resLogin = err.error;
+
+        localStorage.setItem('logged', 'false');
       },
     });
   }
