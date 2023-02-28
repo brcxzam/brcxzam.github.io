@@ -1,1 +1,117 @@
-<p>dates-calculations works!</p>
+<div class="container">
+  <div class="row align-items-center content">
+    <div class="mx-auto">
+      <mat-card class="login-card mat-elevation-z8">
+        <mat-card-content class="login-card-content">
+          <div>
+            <div class="col">
+              <div class="row align-items-center login-card-form">
+                <div class="col">
+                  <div class="row">
+                    <div class="mx-auto">
+                      <h1 class="font-weight-bold">Calculo de Fechas</h1>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="mx-auto">
+                      <p class="text-muted">
+                        Selecciona una fecha y realiza la suma por d&iacute;a,
+                        mes o a&ntilde;o
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Formulario para suma de fechas -->
+                  <div class="row">
+                    <div class="mx-auto">
+                      <form [formGroup]="dateForm" (ngSubmit)="onSubmit()">
+                        <div class="col">
+                          <div class="row">
+                            <div class="mx-auto">
+                              <mat-form-field appearance="fill">
+                                <mat-label>Elige una fecha</mat-label>
+                                <input
+                                  matInput
+                                  [matDatepicker]="picker"
+                                  formControlName="initialDate"
+                                />
+                                <mat-hint>MM/DD/YYYY</mat-hint>
+                                <mat-datepicker-toggle
+                                  matSuffix
+                                  [for]="picker"
+                                ></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="mx-auto">
+                              <mat-form-field appearance="fill">
+                                <mat-label
+                                  >Selecciona una opci&oacute;n</mat-label
+                                >
+                                <mat-select formControlName="typeOperation">
+                                  <mat-option
+                                    *ngFor="let option of options"
+                                    [value]="option.value"
+                                  >
+                                    {{ option.viewValue }}
+                                  </mat-option>
+                                </mat-select>
+                                <mat-hint
+                                  *ngIf="typeOperation?.invalid && (typeOperation?.dirty || typeOperation?.touched) && typeOperation?.errors?.['required']"
+                                  >Deberas seleccioanar una
+                                  opci&oacute;n</mat-hint
+                                >
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="mx-auto">
+                              <mat-form-field appearance="fill">
+                                <mat-label>Cantidad a sumar</mat-label>
+                                <input
+                                  matInput
+                                  formControlName="amount"
+                                  type="number"
+                                />
+                                <mat-hint
+                                  *ngIf="amount?.invalid && (amount?.dirty || amount?.touched) && amount?.errors?.['required']"
+                                  >Deberas igresar una cantidad a
+                                  sumar</mat-hint
+                                >
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="mx-auto">
+                              <button
+                                mat-raised-button
+                                color="primary"
+                                type="submit"
+                              >
+                                Calcular
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="mx-auto mt-3">
+                      <div class="alert alert-success" role="alert">
+                        El resultado de la suma es
+                        {{ finalDate | date : "dd MMM YYYY" }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
