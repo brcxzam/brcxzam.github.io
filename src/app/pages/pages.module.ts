@@ -6,6 +6,9 @@ import { DatesCalculationsComponent } from './dates-calculations/dates-calculati
 import { FormComponent } from './form/form.component';
 import { PagesComponent } from './pages.component';
 import { PagesRoutingModule } from './pages-routing.module';
+import { NameDialogComponent } from './dialogs/name-dialog/name-dialog.component';
+import { MaterialModule } from '../material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,13 @@ import { PagesRoutingModule } from './pages-routing.module';
     DatesCalculationsComponent,
     FormComponent,
     PagesComponent,
+    NameDialogComponent,
   ],
-  imports: [CommonModule, PagesRoutingModule],
+  imports: [
+    CommonModule,
+    PagesRoutingModule,
+    MaterialModule,
+    ReactiveFormsModule,
+  ],
 })
 export class PagesModule {}

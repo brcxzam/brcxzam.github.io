@@ -1,1 +1,28 @@
-<p>welcome works!</p>
+<div class="container-fluid">
+  <div class="row align-items-center content">
+    <div class="col">
+      <div class="row">
+        <div class="mx-auto">
+          <h1>Bienvenido a <span class="highlight">Mi Portal</span></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="mx-auto mt-5">
+          <h3>Nos podrias indicar tu nombre</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="mx-auto mt-4">
+          <button class="name-button" (click)="openNameDialog()">
+            ESCRIBRE TU NOMBRE
+          </button>
+        </div>
+      </div>
+      <div class="row" *ngIf="name">
+        <div class="mx-auto mt-5">
+          <h3>Un gusto saludarte {{ name }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
