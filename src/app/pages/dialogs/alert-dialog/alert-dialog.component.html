@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Informaci&oacute;n ingresada {{ title }}</h1>
+<div mat-dialog-content align="center">
+  <div *ngIf="data; then thenBlock; else elseBlock"></div>
+  <ng-template #thenBlock
+    ><mat-icon class="success">sentiment_very_satisfied</mat-icon></ng-template
+  >
+  <ng-template #elseBlock
+    ><mat-icon class="error">sentiment_very_dissatisfied</mat-icon></ng-template
+  >
+</div>
+<div mat-dialog-actions align="center">
+  <button mat-raised-button mat-dialog-close color="primary">Aceptar</button>
+</div>

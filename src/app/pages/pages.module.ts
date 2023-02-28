@@ -10,6 +10,7 @@ import { NameDialogComponent } from './dialogs/name-dialog/name-dialog.component
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LetterChangePipe } from './pipes/letter-change/letter-change.pipe';
+import { AlertDialogComponent } from './dialogs/alert-dialog/alert-dialog.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { LetterChangePipe } from './pipes/letter-change/letter-change.pipe';
     PagesComponent,
     NameDialogComponent,
     LetterChangePipe,
+    AlertDialogComponent,
   ],
   imports: [
     CommonModule,

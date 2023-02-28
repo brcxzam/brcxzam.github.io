@@ -1,1 +1,174 @@
-<p>form works!</p>
+<div class="container">
+  <div class="row align-items-center content">
+    <div class="mx-auto">
+      <mat-card class="login-card mat-elevation-z8">
+        <mat-card-content class="login-card-content">
+          <div class="row align-items-center login-card-form">
+            <div class="col">
+              <div class="row">
+                <div class="mx-auto">
+                  <h1 class="font-weight-bold">
+                    Ingresa t&uacute; informaci&oacute;n
+                  </h1>
+                </div>
+              </div>
+              <div class="row">
+                <div class="mx-auto">
+                  <p class="text-muted">
+                    Ingresa la informaci&oacute;n solicitada
+                  </p>
+                </div>
+              </div>
+
+              <!-- Formulario para ingreso de la información -->
+              <div class="row">
+                <div class="mx-auto">
+                  <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col">
+                          <mat-form-field appearance="fill">
+                            <mat-label>Nombres</mat-label>
+                            <input matInput formControlName="nombres" />
+                            <mat-error
+                              *ngIf="nombres?.invalid && (nombres?.dirty || nombres?.touched) && nombres?.errors?.['whitespace']"
+                              >El nombre no debe contener espacios al inicio o
+                              al final</mat-error
+                            >
+                          </mat-form-field>
+                        </div>
+
+                        <div class="col">
+                          <mat-form-field appearance="fill">
+                            <mat-label>Apellidos</mat-label>
+                            <input matInput formControlName="apellidos" />
+                            <mat-error
+                              *ngIf="apellidos?.invalid && (apellidos?.dirty || apellidos?.touched) && apellidos?.errors?.['whitespace']"
+                              >Los apellidos no deben contener espacios al
+                              inicio o al final</mat-error
+                            >
+                          </mat-form-field>
+                        </div>
+
+                        <div class="col">
+                          <mat-form-field appearance="fill">
+                            <mat-label>Estado Civil</mat-label>
+                            <mat-select formControlName="estadoCivil">
+                              <mat-option
+                                *ngFor="let option of options"
+                                [value]="option.value"
+                              >
+                                {{ option.viewValue }}
+                              </mat-option>
+                            </mat-select>
+                            <mat-hint
+                              >Deberas seleccioanar una opci&oacute;n</mat-hint
+                            >
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row mt-3">
+                        <div class="col-5">
+                          <label class="mr-3">¿Fumas?</label>
+                          <mat-radio-group formControlName="fumas">
+                            <mat-radio-button [value]="true"
+                              >Si</mat-radio-button
+                            >
+                            <mat-radio-button [value]="false"
+                              >No</mat-radio-button
+                            >
+                          </mat-radio-group>
+                        </div>
+
+                        <div class="col-7">
+                          <label class="mr-3"
+                            >¿Actualmente practicas lectura?</label
+                          >
+                          <mat-radio-group
+                            formControlName="actualmentePracticasLectura"
+                            (change)="onChange()"
+                          >
+                            <mat-radio-button [value]="true"
+                              >Si</mat-radio-button
+                            >
+                            <mat-radio-button [value]="false"
+                              >No</mat-radio-button
+                            >
+                          </mat-radio-group>
+                        </div>
+                      </div>
+                      <ng-template [ngIf]="actualmentePracticasLectura?.value">
+                        <div class="row">
+                          <div class="mx-auto">
+                            <p class="text-muted">
+                              Ingresa los titulos de los libros leidos en los
+                              ultimos tres meses
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="row"
+                          formArrayName="librosLeidosUltimoTresMeses"
+                        >
+                          <div
+                            class="col-4"
+                            *ngFor="
+                              let libros of librosLeidosUltimoTresMeses.controls;
+                              let i = index
+                            "
+                          >
+                            <mat-form-field appearance="fill">
+                              <mat-label>Libro {{ i + 1 }}</mat-label>
+                              <input matInput [formControlName]="i" />
+                              <button
+                                mat-icon-button
+                                matSuffix
+                                (click)="removeLibro(i)"
+                                type="button"
+                              >
+                                <mat-icon>delete</mat-icon>
+                              </button>
+                            </mat-form-field>
+                          </div>
+                          <div class="col-4">
+                            <div
+                              class="row align-items-center"
+                              style="height: 100%"
+                            >
+                              <div class="mx-auto">
+                                <button
+                                  mat-stroked-button
+                                  color="accent"
+                                  (click)="addLibro()"
+                                  type="button"
+                                >
+                                  Agregar Libro
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+
+                      <div class="row">
+                        <div class="mx-auto mt-3">
+                          <button
+                            mat-raised-button
+                            color="primary"
+                            type="submit"
+                          >
+                            Enviar
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
